@@ -1,7 +1,6 @@
 Does it work tho? Hell Yeah!!!
 Reverse way??
-<<<<<<< Updated upstream
+
 Changes
-=======
+
 What no way
->>>>>>> Stashed changes
