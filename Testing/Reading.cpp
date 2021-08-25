@@ -6,7 +6,10 @@ using namespace std;
 int main(){
 
     ifstream file;
-    file.open("Works.txt");
+
+    string f_name;
+    cout << "File Name: ";   cin >> f_name;
+    file.open(f_name);
     string content;
 
     if (file.is_open()){
@@ -17,6 +20,15 @@ int main(){
     }
 
     file.close();
+
+    ofstream ofile;
+
+    ofile.open("Output.txt");
+
+    for (int i=0; i<5; i++){
+        ofile << i << endl;
+    }
+    ofile.close();
 
     return 0;
 }
