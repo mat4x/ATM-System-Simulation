@@ -30,5 +30,7 @@ int main(){
     }
     ofile.close();
 
+    getchar();
+
     return 0;
 }
