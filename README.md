@@ -1,2 +1,2 @@
 # ATM_Management
-OOP Mini-Project
+SE Mini-Project
