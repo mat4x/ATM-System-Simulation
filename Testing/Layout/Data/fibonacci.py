@@ -9,12 +9,13 @@ def fibonacci(n):
     return v2
 
 
-print('In mathematics, the Fibonacci numbers, commonly denoted Fₙ, \n\
-form a sequence, called the Fibonacci sequence, such that each \n\
-number is the sum of the two preceding ones, starting from 0 and 1, for n≥1.')
+if __name__ == "__main__":
+    print('In mathematics, the Fibonacci numbers, commonly denoted Fₙ, \n\
+    form a sequence, called the Fibonacci sequence, such that each \n\
+    number is the sum of the two preceding ones, starting from 0 and 1, for n≥1.')
 
-try:
-    n = int(input("Enter number N: "))
-    print("Ans:", fibonacci(n))
-except:
-    print("Invalid Input")
+    try:
+        n = int(input("Enter number N: "))
+        print("Ans:", fibonacci(n))
+    except:
+        print("Invalid Input")
