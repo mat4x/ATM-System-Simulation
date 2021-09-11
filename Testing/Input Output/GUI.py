@@ -1,4 +1,4 @@
-from tkinter import Tk, Entry, Button, Label        #these are called widgets, that will be placed in the window
+from tkinter import Tk, Entry, Button, Label        #Tkinter is a GUI library, these are called widgets that will be placed in the window
 
 def greet(win, name):               #The command the submit button will perform
     Label(win, text=f"Hello {name}").grid(row=2, column=0, columnspan=2)
