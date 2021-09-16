@@ -17,7 +17,7 @@ def window_name():
 	Button(config.screen, text="Exit Button", bg=config.DARK_BLUE, font=(None,20), command=exit).place(relx=0.5, rely=0.8, anchor='center')
 
 	#accessing the user details who inserted the card
-	print(config.USER_ACC.details())
+	config.USER_ACC.details()
 	print("PIN number:", config.USER_ACC.card_PIN)
 
 	##### Function content ends here ####
