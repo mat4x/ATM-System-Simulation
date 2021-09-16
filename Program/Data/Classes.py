@@ -44,6 +44,7 @@ class Card:
         self.card_no     = card_no
         self.card_status = card_status
 
+
     def block(self):
         self.card_status = "Blocked"
         print("Customer card usage blocked")

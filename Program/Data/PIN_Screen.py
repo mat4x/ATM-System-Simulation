@@ -3,11 +3,13 @@ import config
 
 
 def card_authenticate():
-	pass
+
+	#if matchs pass
+		enter_pin_screen()
 
 def enter_pin_screen():
-	pass
-
+	config.Window.clear_screen(config.screen)
+	Label(config.screen, text="PIN SCREEN", font=(None,50)).place(relx=0.5, rely=0.5, anchor='center')
 
 
 if __name__ == "__main__":

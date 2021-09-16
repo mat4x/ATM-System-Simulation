@@ -4,8 +4,13 @@ import config
 
 
 def remove_card(crd):
-    if config.CARD_REMOVE: crd.destroy()
+    if config.CARD_REMOVE:
+        crd.destroy()
+        config.CARD_REMOVE = False
+        cards_place()
+
     else: print("Can't Remove Card")
+
 
 
 def card_select(win2,acc):
@@ -26,6 +31,7 @@ def card_select(win2,acc):
     print(acc.name)
 
     #call Enter PIN Screen window here / Card Authentication
+    config.PIN_Screen.enter_pin_screen()
 
 
 def cards_place(DIMENSIONS=[350,450]):
@@ -72,7 +78,6 @@ def read_accounts(file=None):
     
 if __name__ == "__main__":
 
-    acc = Acoout9
 
     config.win = config.Window.create_window()
     config.screen = config.Window.create_screen(config.win)

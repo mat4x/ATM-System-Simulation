@@ -3,6 +3,9 @@ from PIL import ImageTk, Image
 import config
 
 
+def card_unreadable():
+        Label(screen, text="Card Not Readable", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+
 def transaction_ended_window(screen, transaction_status):
 	config.Window.clear_screen(screen)
 	info = ".\\images\\info.gif"
@@ -17,6 +20,11 @@ def transaction_ended_window(screen, transaction_status):
 	else:
 		Label(screen, text="Transaction Failed", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	
+	Label(screen, text="Take your card", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.5, rely=0.7, anchor='center')
+
+	config.CARD_REMOVE = True
+	config.EN_NUMPAD = False
+
 	screen.after(5000, lambda: config.Advert_Cycle.advert_window(screen))
 
 

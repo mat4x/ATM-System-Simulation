@@ -3,8 +3,6 @@ import sys;		sys.path.extend([getcwd()+".\\Data\\", getcwd()+".\\Data\\images\\"
 import config
 
 
-
-
 if __name__ == "__main__":
 	config.win = config.Window.create_window()
 	config.screen = config.Window.create_screen(config.win)
