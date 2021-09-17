@@ -6,7 +6,7 @@ def create_window(DIMENSIONS = [900,600]):
     win = Tk()
     win.title("Welcome to 'Bank' ATM")
     win['bg'] = config.BLUE
-    win.geometry(f"{DIMENSIONS[0]}x{DIMENSIONS[1]}+150+50")    
+    win.geometry(f"{DIMENSIONS[0]}x{DIMENSIONS[1]}+10+50")    
     win.minsize(DIMENSIONS[0], DIMENSIONS[1])
     win.maxsize(DIMENSIONS[0], DIMENSIONS[1])
     win.update()
@@ -16,7 +16,7 @@ def create_window(DIMENSIONS = [900,600]):
 
 def create_screen(win):
     ratio = win.winfo_height()/win.winfo_width()
-    frm = Frame(win, bg='darkblue', highlightthickness=10, highlightbackground="#777777")
+    frm = Frame(win, bg=config.DARK_BLUE, highlightthickness=10, highlightbackground="#777777")
     frm.place(relx=ratio/2, rely=0.5, relwidth=ratio*0.95, relheight=0.95, anchor='center')
     
     return frm
@@ -28,23 +28,25 @@ def clear_screen(win):
 
 
 def control_press(action, screen=None):    
+    if action == "Cancel" and config.CAN_TERMINATE:
+        config.Message_Windows.transaction_ended_window(screen, 'CANCELLED')
+
     if config.EN_NUMPAD:
         print(action)
         if action == "Accept":
-            pass
+            config.NEXT_WINDOW()
         elif action == "Back":
-            pass
-        elif action == "Cancel":
-            config.Message_Windows.transaction_ended_window(screen, 'CANCELLED')
+            config.ENTRY_BOX.delete(config.ENTRY_BOX.index("end") - 1)
 
-    else: print("Numpad Disabled")
+    else: print("Numpad Disabled")  ####
 
 
 def num_press(n, entry=None):
     if config.EN_NUMPAD:
-        print(type(n),n)
+        if len( config.ENTRY_BOX.get() ) != 4:
+            config.ENTRY_BOX.insert("end",  str(n))
     
-    else: print("Numpad Disabled")
+    else: print("Numpad Disabled")  ####
 
 
 def create_numpad(win, screen):

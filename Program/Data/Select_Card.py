@@ -12,8 +12,15 @@ def remove_card(crd):
     else: print("Can't Remove Card")
 
 
+def card_authenticate():
+    pass
+
 
 def card_select(win2,acc):
+    if not(card_authenticate()):
+        pass
+
+    #else:
     win2.destroy()
 
     config.EN_NUMPAD = True
@@ -40,7 +47,7 @@ def cards_place(DIMENSIONS=[350,450]):
     win = Toplevel()
     win.title("Select Card")
     win['bg'] = config.BLUE
-    win.geometry(f"{DIMENSIONS[0]}x{DIMENSIONS[1]}+900+100")
+    win.geometry(f"{DIMENSIONS[0]}x{DIMENSIONS[1]}+915+100")
     win.update()
     win.columnconfigure([0,1], weight=1)
     win.rowconfigure([0,1,2], weight=1)
@@ -77,7 +84,6 @@ def read_accounts(file=None):
 
     
 if __name__ == "__main__":
-
 
     config.win = config.Window.create_window()
     config.screen = config.Window.create_screen(config.win)

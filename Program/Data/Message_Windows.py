@@ -24,6 +24,7 @@ def transaction_ended_window(screen, transaction_status):
 
 	config.CARD_REMOVE = True
 	config.EN_NUMPAD = False
+	config.CAN_TERMINATE = False
 
 	screen.after(5000, lambda: config.Advert_Cycle.advert_window(screen))
 
