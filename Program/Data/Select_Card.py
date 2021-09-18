@@ -36,6 +36,7 @@ def card_select(win2,acc):
 
     config.USER_ACC = acc
     print(acc.name)
+    config.CYCLE = False
 
     #call Enter PIN Screen window here / Card Authentication
     config.PIN_Screen.enter_pin_screen()

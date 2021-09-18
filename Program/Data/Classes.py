@@ -39,10 +39,11 @@ class Account:
 
     
 class Card:
-    def __init__(self, name, card_no, card_status):
+    def __init__(self, name, card_no, card_status="Available", attempts=0):
         self.name        = name
         self.card_no     = card_no
         self.card_status = card_status
+        self.attempts    = attempts
 
 
     def block(self):

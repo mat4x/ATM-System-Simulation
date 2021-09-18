@@ -11,10 +11,9 @@ def select_transaction_screen():
 	Label(config.screen, text = "Select a Transaction", fg='white', bg=config.DARK_BLUE, font=(None, 20)).place(relx=0.5, rely=0.4, anchor='center')
 
 	Button(config.screen, text='Account Info',  font=(None,15)).place(relx=0.25, rely=0.6, anchor='center', relwidth=0.35, relheight=0.1)
-	Button(config.screen, text='Withdraw Cash', font=(None,15)).place(relx=0.75, rely=0.6, anchor='center', relwidth=0.35, relheight=0.1)
+	Button(config.screen, text='Withdraw Cash', font=(None,15), command=config.Withdraw_Cash.withdraw_screen).place(relx=0.75, rely=0.6, anchor='center', relwidth=0.35, relheight=0.1)
 	Button(config.screen, text='Fund Transfer', font=(None,15)).place(relx=0.25, rely=0.8, anchor='center', relwidth=0.35, relheight=0.1)
 	Button(config.screen, text='Change PIN',    font=(None,15)).place(relx=0.75, rely=0.8, anchor='center', relwidth=0.35, relheight=0.1)
-
 
 
 if __name__ == "__main__":
@@ -22,6 +21,6 @@ if __name__ == "__main__":
 	config.screen = config.Window.create_screen(config.win)
 	config.Window.create_numpad(config.win, config.screen)
 
-	select_transaction()
+	select_transaction_screen()
 
 	config.win.mainloop()

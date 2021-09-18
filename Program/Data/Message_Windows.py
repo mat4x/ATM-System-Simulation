@@ -20,7 +20,7 @@ def transaction_ended_window(screen, transaction_status):
 	else:
 		Label(screen, text="Transaction Failed", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	
-	Label(screen, text="Take your card", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.5, rely=0.7, anchor='center')
+	Label(screen, text="Please take your card", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.5, rely=0.7, anchor='center')
 
 	config.CARD_REMOVE = True
 	config.EN_NUMPAD = False
@@ -30,10 +30,10 @@ def transaction_ended_window(screen, transaction_status):
 
 
 if __name__ == "__main__":
-	win = config.Window.create_window()
-	screen = config.Window.create_screen(win)
-	config.Window.create_numpad(win, screen)
+	config.win = config.Window.create_window()
+	config.screen = config.Window.create_screen(config.win)
+	config.Window.create_numpad(config.win, config.screen)
 
-	transaction_ended_window(screen, "FAILED")
+	transaction_ended_window(config.screen, "FAILED")
 
-	win.mainloop()
+	config.win.mainloop()
