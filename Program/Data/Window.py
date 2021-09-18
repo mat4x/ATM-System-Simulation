@@ -29,10 +29,9 @@ def clear_screen(win):
 
 def control_press(action, screen=None):    
     if action == "Cancel" and config.CAN_TERMINATE:
-        config.Message_Windows.transaction_ended_window(screen, 'CANCELLED')
+        config.Message_Windows.transaction_ended_window('CANCELLED')
 
-    if config.EN_NUMPAD:
-        print(action)
+    elif config.EN_NUMPAD:
         if action == "Accept":
             config.NEXT_WINDOW()
         elif action == "Back":

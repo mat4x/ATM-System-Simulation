@@ -3,13 +3,13 @@ import config
 
 
 def validate_pin():
-	try:
-		if int(config.ENTRY_BOX.get()) == config.USER_ACC.card_PIN:
-			print("Correct PIN: Access Account")
-			config.Select_Options_Window.select_transaction_screen()
-		else: print("No match")
-	except:
-		print("No input given")
+	#try:
+	if int(config.ENTRY_BOX.get()) == config.CURR_USER_ACC.card_PIN:
+		print("Correct PIN: Access Account")
+		config.Select_Options_Window.select_transaction_screen()
+	else: print("No match")
+	#except:
+	print("Error")
 
 def enter_pin_screen():
 	config.win.geometry("+200+50")
