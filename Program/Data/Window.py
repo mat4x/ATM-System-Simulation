@@ -1,4 +1,5 @@
 from tkinter import Tk, Frame, Button, Label, SOLID
+from PIL import Image, ImageTk
 import config
 
 
@@ -33,6 +34,7 @@ def control_press(action, screen=None):
 
     elif config.EN_NUMPAD:
         if action == "Accept":
+            if config.ENTRY_BOX.get() == '':print("Empty")###
             config.NEXT_WINDOW()
         elif action == "Back":
             config.ENTRY_BOX.delete(config.ENTRY_BOX.index("end") - 1)
@@ -58,7 +60,7 @@ def create_numpad(win, screen):
     button_font = (None, 20)
     
     pad = Frame(win, bg='#777777')
-    pad.place(relx=ratio+((1-ratio)/2), rely=0.45, relheight=0.45, relwidth=(1-ratio)*0.8, anchor='center')
+    pad.place(relx=ratio+((1-ratio)/2), rely=0.025, relheight=0.45, relwidth=(1-ratio)*0.8, anchor='n')
     
     num_keys = Frame(pad, bg='#aaaaaa')
     num_keys.place(relx=0.05, rely=0.5, relheight=0.9, relwidth=0.65, anchor='w')
@@ -90,8 +92,21 @@ def create_numpad(win, screen):
         command = lambda : control_press("Cancel",screen)).grid(column=0, row=3, stick='nsew')
 
     #Card Slot
-    Frame(win, bg='#777777').place(relx=ratio+((1-ratio)/2), rely=0.825, relheight=0.1, relwidth=(1-ratio)*0.8, anchor='center')
-    Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2), rely=0.825, relheight=0.015, relwidth=(1-ratio)*0.8*0.85, anchor='center')
+    Frame(win, bg='#777777').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.56, relheight=0.055, relwidth=(1-ratio)*0.7, anchor='center')
+    Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.56, relheight=0.015, relwidth=(1-ratio)*0.7*0.85, anchor='center')
+
+    global card_ico
+    card_ico = Image.open(".\\images\\Insert_card_ico.gif")
+    card_ico = ImageTk.PhotoImage(card_ico.resize((40,40), Image.ANTIALIAS))
+    Label(win, bg=config.BLUE, image=card_ico).place(relx=ratio+((1-ratio)/2)+0.125, rely=0.56, anchor='center')
+
+    #Cash Dispenser
+    Frame(win, bg='#777777').place(relx=ratio+((1-ratio)/2), rely=0.7, relheight=0.07, relwidth=(1-ratio)*0.95, anchor='center')
+    Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2), rely=0.7, relheight=0.015, relwidth=(1-ratio)*0.9, anchor='center')
+
+    #Receipt Printer
+    Frame(win, bg='#777777').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.85, relheight=0.055, relwidth=(1-ratio)*0.7, anchor='center')
+    Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.85, relheight=0.015, relwidth=(1-ratio)*0.7*0.85, anchor='center')
 
 
 

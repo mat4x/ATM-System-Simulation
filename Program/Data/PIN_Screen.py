@@ -3,16 +3,16 @@ import config
 
 
 def validate_pin():
-	#try:
-	if int(config.ENTRY_BOX.get()) == config.CURR_USER_ACC.card_PIN:
+	try: entered_PIN = config.ENTRY_BOX.get()
+	except: entered_PIN = 'INVALID'
+	if  entered_PIN == config.CURR_USER_ACC.card_PIN:
 		print("Correct PIN: Access Account")
 		config.Select_Options_Window.select_transaction_screen()
-	else: print("No match")
-	#except:
-	print("Error")
+	else:
+		config.CURR_CARD.attempt()
+		config.Message_Windows.transaction_ended_window("INCORRECT_PIN")
 
 def enter_pin_screen():
-	config.win.geometry("+200+50")
 	config.TEXT_LIMIT = 4
 	config.CAN_TERMINATE = True
 	config.Window.clear_screen(config.screen)
