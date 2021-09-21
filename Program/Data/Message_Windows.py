@@ -32,7 +32,7 @@ def transaction_ended_window(transaction_status):
 	elif transaction_status == "INVALID_AMOUNT":
 		Label(config.screen, text="Invalid Denomination", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "WITHDRAW_LIMIT":
-		Label(config.screen, text="Please Enter lesser Amount", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')	
+		Label(config.screen, text="Enter Lesser Amount", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')	
 	elif transaction_status == "INSUFFICIENT_BAL":
 		Label(config.screen, text="Insufficient Balance", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	
