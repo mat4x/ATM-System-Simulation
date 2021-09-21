@@ -12,7 +12,7 @@ def select_transaction_screen():
 
 	Button(config.screen, text='Account Info',  font=(None,15)).place(relx=0.25, rely=0.6, anchor='center', relwidth=0.35, relheight=0.1)
 	Button(config.screen, text='Withdraw Cash', font=(None,15), command=config.Withdraw_Cash.withdraw_screen).place(relx=0.75, rely=0.6, anchor='center', relwidth=0.35, relheight=0.1)
-	Button(config.screen, text='Fund Transfer', font=(None,15)).place(relx=0.25, rely=0.8, anchor='center', relwidth=0.35, relheight=0.1)
+	Button(config.screen, text='Fund Transfer', font=(None,15), command=config.Fund_Transfer.fund_transfer_screen).place(relx=0.25, rely=0.8, anchor='center', relwidth=0.35, relheight=0.1)
 	Button(config.screen, text='Change PIN',    font=(None,15)).place(relx=0.75, rely=0.8, anchor='center', relwidth=0.35, relheight=0.1)
 
 
