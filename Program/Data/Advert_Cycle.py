@@ -4,7 +4,7 @@ import config
 
 
 def cycle_advert(screen, i=0):
-    TIME = 3000
+    TIME = 3500
     #print("Cycling")
     screen['image'] = IMAGES[i]
     if i==len(IMAGES)-1: i=-1
@@ -24,7 +24,8 @@ def advert_window(screen):
  
     global IMAGES
     folder = '.\\images\\'
-    files = ['Brawlhalla.gif', 'Hitman.gif', 'Raid.gif', 'Tomb-Raider.gif']
+    #files = ['Brawlhalla.gif', 'Hitman.gif', 'Raid.gif', 'Tomb-Raider.gif']
+    files = ['Ad'+str(i)+'.jpg' for i in range(1,6)]
     IMAGES = [ImageTk.PhotoImage(i) for i in [Image.open(folder+img).resize((DIM[0],DIM[1]), Image.ANTIALIAS) for img in files]]
 
     screen.after(0, lambda : cycle_advert(adverts_label))
@@ -32,8 +33,8 @@ def advert_window(screen):
 
 if __name__ == "__main__":
 
-    win = config.Window.create_window()
-    screen = config.Window.create_screen(win)
-    config.Window.create_numpad(win, screen)
-    advert_window(screen)
-    win.mainloop()
+    config.win = config.Window.create_window()
+    config.screen = config.Window.create_screen(config.win)
+    config.Window.create_numpad(config.win, config.screen)
+    advert_window(config.screen)
+    config.win.mainloop()
