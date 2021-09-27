@@ -53,6 +53,6 @@ if __name__ == "__main__":
 	config.screen = config.Window.create_screen(config.win)
 	config.Window.create_numpad(config.win, config.screen)
 
-	transaction_ended_window("FAILED")
+	transaction_ended_window("FAILURE")
 
 	config.win.mainloop()

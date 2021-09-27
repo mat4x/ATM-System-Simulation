@@ -36,7 +36,7 @@ def card_select(win2,card):
         return
 
     config.CURR_CARD = card
-    config.CURR_USER_ACC = config.Data_Access.get_acc(str(card.card_no))            #Card Authentication Here
+    config.CURR_USER_ACC = config.Data_Access.get_acc_from_card(str(card.card_no))            #Card Authentication Here
     
     if not(config.CURR_USER_ACC):
         config.Message_Windows.transaction_ended_window("UNREADABLE")
