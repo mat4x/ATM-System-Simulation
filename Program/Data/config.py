@@ -18,6 +18,7 @@ DARK_BLUE = '#123546'
 win = None
 screen = None
 
+TIMER = True
 EN_NUMPAD = False
 NEXT_WINDOW = False
 ENTRY_BOX = False
