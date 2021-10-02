@@ -39,7 +39,7 @@ def control_press(action, screen=None):
         elif action == "Back":
             config.ENTRY_BOX.delete(config.ENTRY_BOX.index("end") - 1)
 
-    else: print("Numpad Disabled")  ####
+    else: print("Actions Disabled")  ####
 
 
 def num_press(n, entry=None):

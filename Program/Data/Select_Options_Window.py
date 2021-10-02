@@ -5,6 +5,7 @@ import config
 
 def select_transaction_screen():
 	config.Window.clear_screen(config.screen)
+	config.TIMER = False
 	config.EN_NUMPAD = False
 
 	Label(config.screen, text = "Weclome to 'Bank' ATM", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.5, rely=0.2, anchor='center')

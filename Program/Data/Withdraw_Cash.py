@@ -5,7 +5,6 @@ import config
 
 def collect_cash(cash):
 	[child.destroy() for child in cash]
-	config.win.after(3000, lambda: config.Message_Windows.transaction_ended_window("SUCCESS"))
 
 
 def dispense_cash(amount):
@@ -31,6 +30,8 @@ def dispense_cash(amount):
 
 
 def read_amount():
+	config.EN_NUMPAD = False
+	config.CAN_TERMINATE = False
 	try: amount = int(config.ENTRY_BOX.get())
 	except: amount = 0
 
@@ -49,12 +50,14 @@ def read_amount():
 	else:	#All okay
 		config.Loading_Screen.loading_screen("Please collect your cash")
 		config.win.after(5000, lambda: dispense_cash(amount))
+		config.win.after(8500, lambda: config.Message_Windows.transaction_ended_window("SUCCESS"))
 		print("Please collect Cash")
 
 
 def withdraw_screen():
 	config.Window.clear_screen(config.screen)
 	config.EN_NUMPAD  = True
+	config.CAN_TERMINATE =  True
 	config.TEXT_LIMIT = 6
 
 	Label(config.screen, text="Enter Amount", bg=config.DARK_BLUE, fg='white', font=(None, 50)).place(relx=0.5,rely=0.35, anchor='center')
