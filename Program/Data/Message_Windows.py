@@ -10,10 +10,10 @@ def transaction_ended_window(transaction_status):
 	config.CARD_REMOVE = True
 	config.TIMER = False
 
-	info = ".\\images\\info.gif"
+	"""info = ".\\images\\info.gif"
 	global INFO_IMG
 	INFO_IMG = ImageTk.PhotoImage(Image.open(info).resize((50,50), Image.ANTIALIAS))
-	Label(config.screen, image=INFO_IMG, bg=config.DARK_BLUE).place(relx=0.025, rely=0.3, anchor='w')
+	Label(config.screen, image=INFO_IMG, bg=config.DARK_BLUE).place(relx=0.025, rely=0.3, anchor='w')"""
 
 
 	if transaction_status == "CANCELLED":
@@ -43,7 +43,11 @@ def transaction_ended_window(transaction_status):
 
 	elif transaction_status == "PIN_NOT_MATCH":
 		Label(config.screen, text="Confirm PIN doesn't match", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
-		
+	elif transaction_status == "SAME_PIN_ENTERED":
+		Label(config.screen, text="Please Enter\na different PIN", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+	elif transaction_status == "PIN_CHANGED_SUCCESSFULLY":
+		Label(config.screen, text="Your PIN has\nbeen updated", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+
 	else:
 		print("Yo, we got an error at Messages")
 

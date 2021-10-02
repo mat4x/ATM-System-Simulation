@@ -95,10 +95,10 @@ def create_numpad(win, screen):
     Frame(win, bg='#777777').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.56, relheight=0.055, relwidth=(1-ratio)*0.7, anchor='center')
     Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.56, relheight=0.015, relwidth=(1-ratio)*0.7*0.85, anchor='center')
 
-    global card_ico
+    '''global card_ico
     card_ico = Image.open(".\\images\\Insert_card_ico.gif")
     card_ico = ImageTk.PhotoImage(card_ico.resize((40,40), Image.ANTIALIAS))
-    Label(win, bg=config.BLUE, image=card_ico).place(relx=ratio+((1-ratio)/2)+0.125, rely=0.56, anchor='center')
+    Label(win, bg=config.BLUE, image=card_ico).place(relx=ratio+((1-ratio)/2)+0.125, rely=0.56, anchor='center')'''
 
     #Cash Dispenser
     Frame(win, bg='#777777').place(relx=ratio+((1-ratio)/2), rely=0.7, relheight=0.07, relwidth=(1-ratio)*0.95, anchor='center')
