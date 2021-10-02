@@ -38,8 +38,9 @@ def transaction_ended_window(transaction_status):
 		Label(config.screen, text="Enter Lesser Amount", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')	
 	elif transaction_status == "INSUFFICIENT_BAL":
 		Label(config.screen, text="Insufficient Balance", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
-	
-	#invalid account number
+	elif transaction_status == "INVALID_ACCOUNT":
+		Label(config.screen, text="Invalid Account Entered", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+
 	#confirmation pin does not match
 	
 	else:
