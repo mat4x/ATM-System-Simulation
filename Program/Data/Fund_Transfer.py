@@ -11,7 +11,7 @@ def transfer(c1, c2,e):
         # Save data into file
     else:
         print("Insufficient balance")
-        config.Message_Windows.transaction_ended_window("FAILURE")
+        config.Message_Windows.transaction_ended_window("INSUFFICIENT_BAL")
 
     c1.details()
     c2.details()
@@ -19,7 +19,7 @@ def transfer(c1, c2,e):
 
 def valid_acc(account):
     config.RECEIVER_ACC = config.Data_Access.get_acc(account)
-    if config.RECEIVER_ACC == None:
+    if config.RECEIVER_ACC == None or config.RECEIVER_ACC.acc_no == config.CURR_USER_ACC.acc_no:
         config.Message_Windows.transaction_ended_window("INVALID_ACCOUNT")
     else:
         fund_transfer_screen_2()
@@ -28,6 +28,7 @@ def valid_acc(account):
     
 def fund_transfer_screen():
     win = config.screen
+    config.TEXT_LIMIT = 6
     config.Window.clear_screen(win)
     config.EN_NUMPAD = True
     Label(win, text="Enter Account number",bg=config.DARK_BLUE, fg="white", font=(None, 25)).place(relx=0.5, rely=0.35, anchor='center',)
