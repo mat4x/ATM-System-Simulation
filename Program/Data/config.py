@@ -30,6 +30,8 @@ CURR_CARD = False
 CARD_REMOVE = False
 CAN_TERMINATE = False
 
+CH_PINS = [0,0]
+
 
 
 #Advert SCreen Control

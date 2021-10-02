@@ -41,8 +41,9 @@ def transaction_ended_window(transaction_status):
 	elif transaction_status == "INVALID_ACCOUNT":
 		Label(config.screen, text="Invalid Account Entered", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 
-	#confirmation pin does not match
-	
+	elif transaction_status == "PIN_NOT_MATCH":
+		Label(config.screen, text="Confirm PIN doesn't match", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+		
 	else:
 		print("Yo, we got an error at Messages")
 

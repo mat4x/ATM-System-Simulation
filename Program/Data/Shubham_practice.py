@@ -4,39 +4,40 @@ import config
 
 
 def change_PIN():
+    config.EN_NUMPAD = True
+    config.CAN_TERMINATE = True
+    config.TEXT_LIMIT = 4
+
     config.Window.clear_screen(config.screen)
     gui1 = config.screen
-    gui1.title("Change PIN")
-    w = Label(gui1, text="New PIN: ")
-    w.pack()
-    new_pin = Entry(gui1)
-    new_pin.pack()
-    Button(gui1, text = "Submit", command = change_PIN).pack()
-    gui1.mainloop()
-    #return new_pin
+    Label(gui1, text="New PIN", font=(None, 40), bg=config.DARK_BLUE, fg='white').place(relx=0.5 ,rely=0.5, anchor='center')
+
+    config.ENTRY_BOX = Entry(gui1, font=(None,50), justify='center')
+    config.ENTRY_BOX.place(relx=0.5 ,rely=0.7, anchor='center', height=80, width=400)
+    
+    config.NEXT_WINDOW = confirm_new_PIN
 
 def confirm_new_PIN():
+    config.CH_PINS[0] = config.ENTRY_BOX.get()
     config.Window.clear_screen(config.screen)
     gui2 = config.screen
-    w1 = Label(gui2, text="Confirm New PIN: ")
-    w1.pack()
-    con_pin = Entry(gui2)
-    con_pin.pack()
-    Button(gui2, text = "Submit", command = confirm_new_PIN).pack()
-    gui2.mainloop()
+    Label(gui2, text="Confirm New PIN: ").pack()
 
-def check(n1, n2):
-    if n1 == n2:
+    config.ENTRY_BOX = Entry(gui2)
+    config.ENTRY_BOX.pack()
+
+    config.NEXT_WINDOW = check
+
+def check():
+    config.CH_PINS[1] = config.ENTRY_BOX.get()
+
+    if config.CH_PINS[0] == config.CH_PINS[1]:
         gui3 = Tk()
         Label(gui3, text = "PIN Changed Successfully").pack()
-        c1.card_PIN = n1
-        print(c1.card_PIN)
+        config.CURR_CARD.card_PIN = config.CH_PINS[0]
+        print(config.CURR_CARD.card_PIN)
     else:
-        gui4 = Tk()
-        Label(gui4, text = "PIN Does not Match").pack()
-#Button(gui, text="Submit", command = lambda: check(new_pin.get(), con_pin.get() )  ).pack()
-#Button(gui, text="Submit", command = lambda: check(new_pin.get(), con_pin.get() )  ).pack()
-#gui.mainloop()
+        config.Message_Windows.transaction_ended_window("PIN_NOT_MATCH")
 
 if __name__ == "__main__":
     
@@ -45,13 +46,10 @@ if __name__ == "__main__":
     config.Window.create_numpad(config.win, config.screen)
 
 
-    config.USER_ACC = config.Classes.Account(103010, "Personal", "Amar Patel",  200200, 203021, 2110)	#sample user account/ use this variable to test program
+    config.USER_ACC = config.Classes.Account(103010, "Personal", "Amar", "Patel",  200200, 203021, 2110)	#sample user account/ use this variable to test program
+    config.CURR_CARD = config.Classes.Card("Amar Patel", 200200)
     change_PIN()
     config.win.mainloop()
-
-
-
-    
     
     #check(change_PIN(), c1.card_PIN)
     
