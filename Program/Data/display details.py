@@ -3,9 +3,9 @@ import config
 from Classes import Account
 
 def display():
-    obj = config.CURR_USER_ACC
-    obj.name
-    obj.balance
+    a = config.CURR_USER_ACC
+    a.name
+    a.balance
     
 if __name__ == "__main__":
     
