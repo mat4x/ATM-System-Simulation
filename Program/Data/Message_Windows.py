@@ -8,8 +8,9 @@ def transaction_ended_window(transaction_status):
 	config.EN_NUMPAD = False
 	config.CAN_TERMINATE = False
 	config.CARD_REMOVE = True
+	config.TIMER = False
 
-	info = ".\\images\\info.gif"
+	info = ".\\images\\info.gif" if config.PLATFORM == "Windows" else "./images/info.gif"
 	global INFO_IMG
 	INFO_IMG = ImageTk.PhotoImage(Image.open(info).resize((50,50), Image.ANTIALIAS))
 	Label(config.screen, image=INFO_IMG, bg=config.DARK_BLUE).place(relx=0.025, rely=0.3, anchor='w')
@@ -28,19 +29,27 @@ def transaction_ended_window(transaction_status):
 		Label(config.screen, text="Card usage has been\nBLOCKED", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "INCORRECT_PIN":
 		Label(config.screen, text="Incorrect PIN Entered", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
-	
+	elif transaction_status == "TIMED OUT":
+		Label(config.screen, text="Time Limit Exceeded", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+
 	elif transaction_status == "INVALID_AMOUNT":
 		Label(config.screen, text="Invalid Denomination", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "WITHDRAW_LIMIT":
 		Label(config.screen, text="Enter Lesser Amount", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')	
 	elif transaction_status == "INSUFFICIENT_BAL":
 		Label(config.screen, text="Insufficient Balance", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
-	
-	#invalid account number
-	#confirmation pin does not match
-	
+	elif transaction_status == "INVALID_ACCOUNT":
+		Label(config.screen, text="Invalid Account Entered", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+
+	elif transaction_status == "PIN_NOT_MATCH":
+		Label(config.screen, text="Confirm PIN doesn't match", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+	elif transaction_status == "SAME_PIN_ENTERED":
+		Label(config.screen, text="Please Enter\na different PIN", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+	elif transaction_status == "PIN_CHANGED_SUCCESSFULLY":
+		Label(config.screen, text="Your PIN has\nbeen updated", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+
 	else:
-		print("Yo, we got an error")
+		print("Yo, we got an error at Messages")
 
 
 	Label(config.screen, text="Please take your card", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.5, rely=0.7, anchor='center')
@@ -53,6 +62,6 @@ if __name__ == "__main__":
 	config.screen = config.Window.create_screen(config.win)
 	config.Window.create_numpad(config.win, config.screen)
 
-	transaction_ended_window("FAILED")
+	transaction_ended_window("FAILURE")
 
 	config.win.mainloop()

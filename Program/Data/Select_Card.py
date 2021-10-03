@@ -23,7 +23,7 @@ def card_select(win2,card):
     ratio = config.win.winfo_height()/config.win.winfo_width()
     
     global CARD_INSERTED_IMG
-    img = ".\\images\\Card_inserted.gif"
+    img = ".\\images\\Card_inserted.gif" if config.PLATFORM=="Windows" else "./images/Card_inserted.gif"
     size = [int(d/1.8) for d in Image.open(img).size]
     CARD_INSERTED_IMG = ImageTk.PhotoImage(Image.open(img).resize(size))
 
@@ -36,7 +36,7 @@ def card_select(win2,card):
         return
 
     config.CURR_CARD = card
-    config.CURR_USER_ACC = config.Data_Access.get_acc(str(card.card_no))            #Card Authentication Here
+    config.CURR_USER_ACC = config.Data_Access.get_acc_from_card(str(card.card_no))            #Card Authentication Here
     
     if not(config.CURR_USER_ACC):
         config.Message_Windows.transaction_ended_window("UNREADABLE")
@@ -64,8 +64,8 @@ def cards_place(DIMENSIONS=[350,450]):
     
     #import card image for button
     global CARD_IMG, BLOCKED_CARD_IMG
-    CARD_IMG = ImageTk.PhotoImage(Image.open(".\\images\\Card.gif").resize((135,90), Image.ANTIALIAS))
-    BLOCKED_CARD_IMG = ImageTk.PhotoImage(Image.open(".\\images\\Card_Blocked.gif").resize((135,90), Image.ANTIALIAS))
+    CARD_IMG = ImageTk.PhotoImage(Image.open(".\\images\\Card.gif" if config.PLATFORM=="Windows" else "./images/Card.gif").resize((135,90), Image.ANTIALIAS))
+    BLOCKED_CARD_IMG = ImageTk.PhotoImage(Image.open(".\\images\\Card_Blocked.gif" if config.PLATFORM=="Windows" else "./images/Card_Blocked.gif").resize((135,90), Image.ANTIALIAS))
 
     #place cards on screen
     r = c = 0

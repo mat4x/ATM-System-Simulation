@@ -1,6 +1,12 @@
 from os import chdir, getcwd
-import sys;		sys.path.extend([getcwd()+".\\Data\\", getcwd()+".\\Data\\images\\"]); chdir('.\\Data\\')
+import sys
+import platform
+
+if platform.system() == "Windows":
+	sys.path.extend([getcwd()+".\\Data\\", getcwd()+".\\Data\\images\\"]); chdir('.\\Data\\')	#Windows
+else: sys.path.extend([getcwd()+"./Data/", getcwd()+"./Data/images/"]); chdir('./Data/')		#Mac OS
 import config
+
 
 
 def start():

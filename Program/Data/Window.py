@@ -39,7 +39,7 @@ def control_press(action, screen=None):
         elif action == "Back":
             config.ENTRY_BOX.delete(config.ENTRY_BOX.index("end") - 1)
 
-    else: print("Numpad Disabled")  ####
+    else: print("Actions Disabled")  ####
 
 
 def num_press(n, entry=None):
@@ -96,7 +96,7 @@ def create_numpad(win, screen):
     Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.56, relheight=0.015, relwidth=(1-ratio)*0.7*0.85, anchor='center')
 
     global card_ico
-    card_ico = Image.open(".\\images\\Insert_card_ico.gif")
+    card_ico = Image.open(".\\images\\Insert_card_ico.gif" if config.PLATFORM=="Windows" else "./images/Insert_card_ico.gif")
     card_ico = ImageTk.PhotoImage(card_ico.resize((40,40), Image.ANTIALIAS))
     Label(win, bg=config.BLUE, image=card_ico).place(relx=ratio+((1-ratio)/2)+0.125, rely=0.56, anchor='center')
 

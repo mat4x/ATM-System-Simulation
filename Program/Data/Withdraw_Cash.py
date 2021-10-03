@@ -5,7 +5,6 @@ import config
 
 def collect_cash(cash):
 	[child.destroy() for child in cash]
-	config.win.after(3000, lambda: config.Message_Windows.transaction_ended_window("SUCCESS"))
 
 
 def dispense_cash(amount):
@@ -15,8 +14,8 @@ def dispense_cash(amount):
 	disp = min(7, notes100+notes500)
 
 	global IMG100, IMG500
-	IMG100 = ".\\images\\Note_100.gif"
-	IMG500 = ".\\images\\Note_500.gif"
+	IMG100 = ".\\images\\Note_100.gif" if config.PLATFORM=="Windows" else "./images/Note_100.gif"
+	IMG500 = ".\\images\\Note_500.gif" if config.PLATFORM=="Windows" else "./images/Note_500.gif"
 	IMG100 = ImageTk.PhotoImage(Image.open(IMG100).resize((200,93), Image.ANTIALIAS))
 	IMG500 = ImageTk.PhotoImage(Image.open(IMG500).resize((200,93), Image.ANTIALIAS))
 
@@ -31,6 +30,8 @@ def dispense_cash(amount):
 
 
 def read_amount():
+	config.EN_NUMPAD = False
+	config.CAN_TERMINATE = False
 	try: amount = int(config.ENTRY_BOX.get())
 	except: amount = 0
 
@@ -49,12 +50,14 @@ def read_amount():
 	else:	#All okay
 		config.Loading_Screen.loading_screen("Please collect your cash")
 		config.win.after(5000, lambda: dispense_cash(amount))
+		config.win.after(8500, lambda: config.Message_Windows.transaction_ended_window("SUCCESS"))
 		print("Please collect Cash")
 
 
 def withdraw_screen():
 	config.Window.clear_screen(config.screen)
 	config.EN_NUMPAD  = True
+	config.CAN_TERMINATE =  True
 	config.TEXT_LIMIT = 6
 
 	Label(config.screen, text="Enter Amount", bg=config.DARK_BLUE, fg='white', font=(None, 50)).place(relx=0.5,rely=0.35, anchor='center')
