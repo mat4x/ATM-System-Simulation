@@ -14,8 +14,8 @@ def dispense_cash(amount):
 	disp = min(7, notes100+notes500)
 
 	global IMG100, IMG500
-	IMG100 = ".\\images\\Note_100.gif"
-	IMG500 = ".\\images\\Note_500.gif"
+	IMG100 = ".\\images\\Note_100.gif" if config.PLATFORM=="Windows" else "./images/Note_100.gif"
+	IMG500 = ".\\images\\Note_500.gif" if config.PLATFORM=="Windows" else "./images/Note_500.gif"
 	IMG100 = ImageTk.PhotoImage(Image.open(IMG100).resize((200,93), Image.ANTIALIAS))
 	IMG500 = ImageTk.PhotoImage(Image.open(IMG500).resize((200,93), Image.ANTIALIAS))
 

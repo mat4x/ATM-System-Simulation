@@ -10,7 +10,9 @@ import Select_Options_Window
 import Window
 import Withdraw_Cash
 import Change_PIN_Window
+import platform
 
+PLATFORM = platform.system()
 
 BLUE = "#3380cc"
 DARK_BLUE = '#123546'

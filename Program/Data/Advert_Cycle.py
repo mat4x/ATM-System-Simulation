@@ -23,7 +23,7 @@ def advert_window(screen):
     adverts_label.place(relx=0.5, rely=0.5, relwidth=1, relheight=1, anchor = 'center')
  
     global IMAGES
-    folder = '.\\images\\'
+    folder = ".\\images\\" if config.PLATFORM == "Windows" else './images/'
     #files = ['Brawlhalla.gif', 'Hitman.gif', 'Raid.gif', 'Tomb-Raider.gif']
     files = ['Ad'+str(i)+'.jpg' for i in range(1,6)]
     IMAGES = [ImageTk.PhotoImage(i) for i in [Image.open(folder+img).resize((DIM[0],DIM[1]), Image.ANTIALIAS) for img in files]]

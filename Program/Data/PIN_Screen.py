@@ -38,7 +38,7 @@ def enter_pin_screen():
 	start_timeout(time)
 
 	Label(config.screen, text="Enter PIN", bg=config.DARK_BLUE, fg='white', font=(None, 50)).place(relx=0.5,rely=0.7, anchor='center')
-	pin_entry = Entry(config.screen, font=(None, 60), justify='center', insertontime=0)		#, show='*'`
+	pin_entry = Entry(config.screen, font=(None, 60), justify='center', insertontime=0, show='*')		#, show='*'`
 	pin_entry.place(relx=0.5,rely=0.35, anchor='center', height=80, width=400)
 	pin_entry.focus_set()
 

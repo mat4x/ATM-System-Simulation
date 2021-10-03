@@ -10,10 +10,10 @@ def transaction_ended_window(transaction_status):
 	config.CARD_REMOVE = True
 	config.TIMER = False
 
-	"""info = ".\\images\\info.gif"
+	info = ".\\images\\info.gif" if config.PLATFORM == "Windows" else "./images/info.gif"
 	global INFO_IMG
 	INFO_IMG = ImageTk.PhotoImage(Image.open(info).resize((50,50), Image.ANTIALIAS))
-	Label(config.screen, image=INFO_IMG, bg=config.DARK_BLUE).place(relx=0.025, rely=0.3, anchor='w')"""
+	Label(config.screen, image=INFO_IMG, bg=config.DARK_BLUE).place(relx=0.025, rely=0.3, anchor='w')
 
 
 	if transaction_status == "CANCELLED":

@@ -28,7 +28,7 @@ if __name__ == "__main__":
 	config.screen = config.Window.create_screen(config.win)		#create widgets(Label/Button/Entry) in this screen variable in function
 	config.Window.create_numpad(config.win, config.screen)
 
-	config.USER_ACC = config.Classes.Account(103010, "Personal", "Amar Patel",  200200, 203021, 2110)	#sample user account/ use this variable to test program
+	config.USER_ACC = config.Classes.Account(103010, "Personal", "Amar", "Patel",  200200, 203021, 2110)	#sample user account/ use this variable to test program
 
 	window_name()												#<----Call your window function here
 
