@@ -9,6 +9,16 @@ class InsufficientBalance(Exception):
 class AccountUnavailable(Exception):
     pass
 
+class Machine:
+    def __init__(self, branch_location, status="online", cash_available=5000000):
+        self.branch_location = branch_location
+        self.status          = status
+        self.cash_available  = cash_available
+    
+    def deduct(self, amount):
+        if amount<=self.cash_available:
+            self.cash_available -= amount
+
 
 class Account:
     def __init__(self, acc_no, acc_type, fname, lname, balance, card_no, card_PIN):
@@ -74,14 +84,4 @@ class Card:
 
 
 if __name__ == "__main__":
-    '''c1 = Card("Ananya",632457,"Available",0)
-    if input("Block[B] or Free[F]").lower() == 'b': c1.block()
-    else: c1.free()'''
-
-    c1 = Account(1000, "Personal",    "Mayur",   "Sharma",  700001,  400701,  1001)
-    c2 = Account(5050, "Personal",    "Priyanshi",   "Singhal", 100000,  512468,  2020)
-
-
-
-    
-    
+    pass

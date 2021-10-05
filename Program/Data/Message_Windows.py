@@ -51,10 +51,19 @@ def transaction_ended_window(transaction_status):
 	else:
 		print("Yo, we got an error at Messages")
 
-
 	Label(config.screen, text="Please take your card", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.5, rely=0.7, anchor='center')
 	
 	config.screen.after(5000, lambda: config.Advert_Cycle.advert_window(config.screen))
+
+
+def ATM_unavailable():
+	info = ".\\images\\info.gif" if config.PLATFORM == "Windows" else "./images/info.gif"
+	global INFO_IMG
+	INFO_IMG = ImageTk.PhotoImage(Image.open(info).resize((50,50), Image.ANTIALIAS))
+	Label(config.screen, image=INFO_IMG, bg=config.DARK_BLUE).place(relx=0.025, rely=0.3, anchor='w')
+
+	Label(config.screen, text="ATM Unavailable\nat the Moment", fg='white',justify='left', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+
 
 
 if __name__ == "__main__":
