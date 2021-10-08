@@ -61,4 +61,3 @@ if __name__ == "__main__":
     config.win.mainloop()
     
     #check(change_PIN(), c1.card_PIN)
-    
