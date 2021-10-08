@@ -2,6 +2,13 @@ import pandas as pd
 import config
 
 
+def get_ATM_machine():
+    status, location, cash_available = open("Machine_info.txt").read().split('\n')
+    return config.Classes.Machine(location, status, float(cash_available)) 
+
+def save_ATM_Machine(mch):
+    pass###
+
 def save_acc(acc):
     columns = ["Balance", "Card PIN"]
     df =  pd.read_csv('Accounts_Data_Test.csv', dtype=str)
@@ -51,4 +58,4 @@ def get_cards():
 
 
 if __name__ == "__main__":
-    pass
+    mch = get_ATM_machine()

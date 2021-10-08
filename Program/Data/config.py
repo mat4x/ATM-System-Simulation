@@ -20,6 +20,8 @@ DARK_BLUE = '#123546'
 win = None
 screen = None
 
+MACHINE = Data_Access.get_ATM_machine()
+
 TIMER = True
 EN_NUMPAD = False
 NEXT_WINDOW = False
