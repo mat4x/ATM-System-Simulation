@@ -1,6 +1,5 @@
 from tkinter import *
-import config
-from Classes import Account
+
 class Account:
     def __init__(self, acc_no, acc_type, fname, lname, balance, card_no, card_PIN):
         self.acc_no   = acc_no
@@ -12,10 +11,6 @@ class Account:
         self.card_no  = card_no
         self.card_PIN = card_PIN
 
-def display():
-    a = config.CURR_USER_ACC
-    a.name
-    a.balance
     def get_vals(self):
         return [self.balance, self.card_PIN]
 
