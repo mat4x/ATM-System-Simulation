@@ -40,6 +40,8 @@ def transaction_ended_window(transaction_status):
 		Label(config.screen, text="Insufficient Balance", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "INVALID_ACCOUNT":
 		Label(config.screen, text="Invalid Account Entered", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+	elif transaction_status == "NO_CASH":
+		Label(config.screen, text="Unavailable.\nPlease try again later", fg='white', bg=config.DARK_BLUE, font=(None, 30),justify='left').place(relx=0.15, rely=0.3, anchor='w')
 
 	elif transaction_status == "PIN_NOT_MATCH":
 		Label(config.screen, text="Confirm PIN doesn't match", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
@@ -53,7 +55,7 @@ def transaction_ended_window(transaction_status):
 
 	Label(config.screen, text="Please take your card", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.5, rely=0.7, anchor='center')
 	
-	config.screen.after(5000, lambda: config.Advert_Cycle.advert_window(config.screen))
+	config.screen.after(10000, lambda: config.Advert_Cycle.advert_window(config.screen))
 
 
 def ATM_unavailable():

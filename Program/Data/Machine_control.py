@@ -4,6 +4,7 @@ def reset():
     file = open("Machine_info.txt", 'w')
     file.write("online\nKharghar\n200000")
     file.close()
+    print("Reset complete")
 
 def write_data():
     print(info)
