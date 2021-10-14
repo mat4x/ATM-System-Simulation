@@ -43,6 +43,10 @@ def read_amount():
 		print("Invalid denomination")
 		config.Message_Windows.transaction_ended_window("INVALID_AMOUNT")
 
+	elif amount>config.MACHINE.cash_available:
+		print("No cash in machine")
+		config.Message_Windows.transaction_ended_window("NO_CASH")
+
 	elif amount > config.CURR_USER_ACC.balance:
 		print("Insufficient Balance")
 		config.Message_Windows.transaction_ended_window("INSUFFICIENT_BAL")
@@ -51,6 +55,7 @@ def read_amount():
 		config.Loading_Screen.loading_screen("Please collect your cash")
 		config.win.after(5000, lambda: dispense_cash(amount))
 		config.win.after(8500, lambda: config.Message_Windows.transaction_ended_window("SUCCESS"))
+		config.MACHINE.cash_available-=amount
 		print("Please collect Cash")
 
 
