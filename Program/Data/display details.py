@@ -41,15 +41,15 @@ def display_acc_details(win):
     acc_type = acc.acc_type
     Label(win,text="Account Details",font=(None,30),bg="blue",fg="white").place(relx=0.5,rely=0.2,anchor="center")
 
-    Label(win,text="Account Holder Name: ").place(relx=0.2,rely=0.3)
-    Label(win,text="Account Number: ").place(relx=0.2,rely=0.4)
-    Label(win,text="Balance: ").place(relx=0.2,rely=0.5)
-    Label(win,text="Account Type: ").place(relx=0.2,rely=0.6)
+    Label(win,text="Account Holder Name: ",font=(None),bg="blue").place(relx=0.2,rely=0.3)
+    Label(win,text="Account Number: ",font=(None),bg="blue").place(relx=0.2,rely=0.4)
+    Label(win,text="Balance: ",font=(None),bg="blue").place(relx=0.2,rely=0.5)
+    Label(win,text="Account Type: ",font=(None),bg="blue").place(relx=0.2,rely=0.6)
 
-    Label(win,text=name).place(relx=0.6,rely=0.3)
-    Label(win,text=acc_no).place(relx=0.6,rely=0.4)
-    Label(win,text=balance).place(relx=0.6,rely=0.5)
-    Label(win,text=acc_type).place(relx=0.6,rely=0.6)
+    Label(win,text=name,font=(None),bg="blue").place(relx=0.6,rely=0.3)
+    Label(win,text=acc_no,font=(None),bg="blue").place(relx=0.6,rely=0.4)
+    Label(win,text=balance,font=(None),bg="blue").place(relx=0.6,rely=0.5)
+    Label(win,text=acc_type,font=(None),bg="blue").place(relx=0.6,rely=0.6)
 
     win.after(15000,lambda:print("Transaction Successful"))
 
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     acc = Account(24329,"savings","ananya","mishra",125000,1276283,1243)
     win =Tk()
     win.geometry("500x500")
-    win.configure(bg="yellow")
+    win.configure(bg="BLUE")
     display_acc_details(win)
 
     win.mainloop()
