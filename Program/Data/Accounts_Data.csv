@@ -1,10 +1,10 @@
 ﻿Account No,Acount Type,First Name,Last Name,Balance,Card No,Card PIN
-1000,Personal,Mayur,Sharma,7000,400701,1001
-5050,Personal,Priyanshi,Singhal,100000,512468,2020
-3478,Personal,Ananya,Mishra,100000,632457,0330
-8134,Business,Shubham,Kumar,100000,786321,404
-5347,Personal,Ajay,Garg,601234,365210,1234
-6853,Personal,Sahil,Verma,502304,652314,1738
-3698,Personal,Sakaar,Shah,10000,784521,1947
-1025,Personal,Amar,Patel,34562,12364,2022
-1738,Business,Nikhil,Shah,911420,300823,5544
+2000001000,Personal,Mayur,Sharma,7000,400701,1001
+2000005050,Personal,Priyanshi,Singhal,100000,512468,2020
+2000003478,Personal,Ananya,Mishra,100000,632457,0330
+2000008134,Business,Shubham,Kumar,100000,786321,404
+2000005347,Personal,Ajay,Garg,601234,365210,1234
+2000006853,Personal,Sahil,Verma,502304,652314,1738
+2000003698,Personal,Sakaar,Shah,10000,784521,1947
+2000001025,Personal,Amar,Patel,34562,12364,2022
+2000001738,Business,Nikhil,Shah,911420,300823,5544

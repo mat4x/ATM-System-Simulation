@@ -1,6 +1,7 @@
 import Advert_Cycle
 import Classes
 import Data_Access
+import Display_Details
 import Fund_Transfer
 import Loading_Screen
 import Message_Windows

@@ -33,13 +33,13 @@ def enter_pin_screen():
 	config.EN_NUMPAD = True
 	config.TIMER = True
 
-	time = Label(config.screen, text='0', font=(None,50) ,bg=config.DARK_BLUE, fg='white')
+	time = Label(config.screen, text='0', font=(None,30) ,bg=config.DARK_BLUE, fg='white')
 	time.place(relx=0.8, rely=0.1, anchor='center')
 	start_timeout(time)
 
-	Label(config.screen, text="Enter PIN", bg=config.DARK_BLUE, fg='white', font=(None, 50)).place(relx=0.5,rely=0.7, anchor='center')
+	Label(config.screen, text="Enter your PIN", bg=config.DARK_BLUE, fg='white', font=(None, 47)).place(relx=0.5,rely=0.35, anchor='center')
 	pin_entry = Entry(config.screen, font=(None, 60), justify='center', insertontime=0, show='*')		#, show='*'`
-	pin_entry.place(relx=0.5,rely=0.35, anchor='center', height=80, width=400)
+	pin_entry.place(relx=0.5,rely=0.65, anchor='center', height=80, width=400)
 	pin_entry.focus_set()
 
 	config.ENTRY_BOX = pin_entry
