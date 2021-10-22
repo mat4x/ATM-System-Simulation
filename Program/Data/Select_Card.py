@@ -63,15 +63,17 @@ def cards_place(DIMENSIONS=[350,450]):
 
     
     #import card image for button
-    global CARD_IMG, BLOCKED_CARD_IMG
+    global CARD_IMG, BLOCKED_CARD_IMG, INVALID_CARD_IMG
     CARD_IMG = ImageTk.PhotoImage(Image.open(".\\images\\Card.gif" if config.PLATFORM=="Windows" else "./images/Card.gif").resize((135,90), Image.ANTIALIAS))
     BLOCKED_CARD_IMG = ImageTk.PhotoImage(Image.open(".\\images\\Card_Blocked.gif" if config.PLATFORM=="Windows" else "./images/Card_Blocked.gif").resize((135,90), Image.ANTIALIAS))
+    INVALID_CARD_IMG = ImageTk.PhotoImage(Image.open(".\\images\\Card_Invalid.gif" if config.PLATFORM=="Windows" else "./images/Card_Invalid.gif").resize((135,90), Image.ANTIALIAS))
 
     #place cards on screen
     r = c = 0
     for card in cards:
         frm = Frame(win, bg=config.BLUE);  frm.grid(row=r, column=c)
         img = CARD_IMG if card.card_status == "Available" else BLOCKED_CARD_IMG
+        if card.name=="Invalid": img = INVALID_CARD_IMG
         Button(frm, text=card.name, image=img, bg=config.BLUE, border=1, activebackground=config.BLUE,
             command = lambda x=card : card_select(win,x)).pack()
         Label(frm, text=card.name, bg=config.BLUE).pack()

@@ -18,6 +18,10 @@ class Machine:
     def deduct(self, amount):
         if amount<=self.cash_available:
             self.cash_available -= amount
+            
+    def data(self):
+        return '\n'.join([self.status, self.branch_location, str(self.cash_available)])
+        
 
 
 class Account:

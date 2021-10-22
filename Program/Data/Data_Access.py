@@ -1,13 +1,18 @@
 import pandas as pd
 import config
 
+#Note: this file is still under testing phase
 
 def get_ATM_machine():
     status, location, cash_available = open("Machine_info.txt").read().split('\n')
     return config.Classes.Machine(location, status, float(cash_available)) 
 
 def save_ATM_Machine(mch):
-    pass###
+    info = mch.data()
+    file = open("Machine_info.txt", 'w')
+    file.write(info)
+    file.close()
+    
 
 def save_acc(acc):
     columns = ["Balance", "Card PIN"]
@@ -59,3 +64,4 @@ def get_cards():
 
 if __name__ == "__main__":
     mch = get_ATM_machine()
+    print(mch.data())
