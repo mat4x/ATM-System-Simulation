@@ -19,12 +19,17 @@ def validate_pin():
 	config.TIMER = False
 	try: entered_PIN = config.ENTRY_BOX.get()
 	except: entered_PIN = 'INVALID'
-	if  entered_PIN == config.CURR_USER_ACC.card_PIN:
+	
+	if  entered_PIN == config.CURR_USER_ACC.card_PIN:	
+		config.CURR_CARD.attempts=0
+		config.Data_Access.save_card(config.CURR_CARD)
+
 		print("Correct PIN: Access Account")
 		config.Select_Options_Window.select_transaction_screen()
 	else:
 		config.CURR_CARD.attempt()
 		config.Message_Windows.transaction_ended_window("INCORRECT_PIN")
+
 
 def enter_pin_screen():
 	config.TEXT_LIMIT = 4

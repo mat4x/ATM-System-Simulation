@@ -1,4 +1,5 @@
 import pandas as pd
+import config
 
 class IncorrectPIN(Exception):
     pass
@@ -67,10 +68,14 @@ class Card:
         self.attempts    = int(attempts)
 
     def get_vals(self):
-        return [card_status, attempts]
+        return [self.card_status, self.attempts]
 
     def attempt(self):
         self.attempts+=1
+        if self.attempts == 3:
+            self.attempts=0
+            self.card_status="Blocked"
+        config.Data_Access.save_card(config.CURR_CARD)
 
     def block(self):
         df = pd.read_csv("Cards_Data_Test.csv", dtype=str)

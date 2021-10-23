@@ -19,6 +19,7 @@ def transaction_ended_window(transaction_status):
 	if transaction_status == "CANCELLED":
 		Label(config.screen, text="Transaction Terminated", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "SUCCESS":
+		config.Data_Access.save_acc(config.CURR_USER_ACC)
 		Label(config.screen, text="Transaction Successful", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "FAILURE":
 		Label(config.screen, text="Transaction Failed", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
@@ -48,6 +49,7 @@ def transaction_ended_window(transaction_status):
 	elif transaction_status == "SAME_PIN_ENTERED":
 		Label(config.screen, text="Please Enter\na different PIN", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "PIN_CHANGED_SUCCESSFULLY":
+		config.Data_Access.save_acc(config.CURR_USER_ACC)
 		Label(config.screen, text="Your PIN has\nbeen updated", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 
 	else:

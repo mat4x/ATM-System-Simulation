@@ -2,19 +2,25 @@ from tkinter import *
 import config
 from Classes import Account
 
-def transfer(c1, c2,e):
+def transfer(e):
+    
+    config.CURR_USER_ACC.details()
+    config.RECEIVER_ACC.details()
+
     amount = int(e.get())
-    if c1.balance >= amount:  
-        c1.balance -=amount
-        c2.balance += amount
+    print(amount)
+    if config.CURR_USER_ACC.balance >= amount:
+        config.CURR_USER_ACC.balance -= amount
+        config.RECEIVER_ACC.balance += amount
+        config.Data_Access.save_acc(config.CURR_USER_ACC)
+        config.Data_Access.save_acc(config.RECEIVER_ACC)
         config.Message_Windows.transaction_ended_window("SUCCESS")
-        # Save data into file
     else:
         print("Insufficient balance")
         config.Message_Windows.transaction_ended_window("INSUFFICIENT_BAL")
 
-    c1.details()
-    c2.details()
+    config.CURR_USER_ACC.details()
+    config.RECEIVER_ACC.details()
 
 
 def valid_acc(account):
@@ -44,17 +50,16 @@ def fund_transfer_screen_2():
 
     Label(win, text="Enter Amount", bg=config.DARK_BLUE, fg="white", font=(None, 50)).place(relx=0.5, rely=0.35, anchor='center')
 
-    e = Entry(win, font=(None,50), justify= "center")
-    e.place(relx=0.5, rely=0.7, anchor='center', height=80, width=400)
-    config.ENTRY_BOX = e
-    config.NEXT_WINDOW = lambda: transfer(config.CURR_USER_ACC, config.RECEIVER_ACC ,e)     
+    amount_entry = Entry(win, font=(None,50), justify= "center")
+    amount_entry.place(relx=0.5, rely=0.7, anchor='center', height=80, width=400)
+    config.ENTRY_BOX = amount_entry
+    config.NEXT_WINDOW = lambda: transfer(amount_entry)
 
 
 
 if __name__ == "__main__":
-    c1 = Account(5678, "Buiseness", "Priyanshi", "Singhal", 100000, 70362019466, 2003)
-    
-    config.CURR_USER_ACC = c1
+   
+    config.CURR_USER_ACC = config.Data_Access.get_acc(5050)
     
     config.win = config.Window.create_window()
     config.screen = config.Window.create_screen(config.win)

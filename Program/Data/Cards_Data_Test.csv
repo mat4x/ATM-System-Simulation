@@ -1,7 +1,7 @@
 Name,Card No,Status,Attempts
-Mayur,400701,Available,0
+Mayur,400701,Available,1
 Ananya,632457,Available,0
 Priyanshi,512468,Available,0
 Shubham,786321,Blocked,0
 Nikhil,300823,Blocked,0
-Invalid,0,Available,0
+Invalid,0,Blocked,0
