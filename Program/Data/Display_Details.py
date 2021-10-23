@@ -15,7 +15,7 @@ def display_acc_details():
     balance  = f"Rs.{config.CURR_USER_ACC.balance}"
     acc_type = config.CURR_USER_ACC.acc_type
     
-    Label(win,text="Account Details",font=(None,30),bg=config.DARK_BLUE,fg="white").place(relx=0.5,rely=0.2,anchor="center")
+    Label(win,text="Account Details",font=(None,40),bg=config.DARK_BLUE,fg="white").place(relx=0.5,rely=0.2,anchor="center")
 
     Label(win,text="Account Holder Name ",font=(None,font_sz),bg=config.DARK_BLUE,fg="white").place(relx=left,rely=0.4)
     Label(win,text="Account Number "     ,font=(None,font_sz),bg=config.DARK_BLUE,fg="white").place(relx=left,rely=0.5)

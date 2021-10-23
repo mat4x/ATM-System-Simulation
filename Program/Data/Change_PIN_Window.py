@@ -11,9 +11,9 @@ def change_PIN():
 
     config.Window.clear_screen(config.screen)
     gui1 = config.screen
-    Label(gui1, text="New PIN", font=(None, 40), bg=config.DARK_BLUE, fg='white').place(relx=0.5 ,rely=0.5, anchor='center')
+    Label(gui1, text="New PIN", font=(None, 50), bg=config.DARK_BLUE, fg='white').place(relx=0.5 ,rely=0.35, anchor='center')
 
-    config.ENTRY_BOX = Entry(gui1, font=(None,50), justify='center')
+    config.ENTRY_BOX = Entry(gui1, font=(None,60), justify='center')
     config.ENTRY_BOX.place(relx=0.5 ,rely=0.7, anchor='center', height=80, width=400)
     
     config.NEXT_WINDOW = check_with_existing_PIN

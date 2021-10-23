@@ -28,10 +28,10 @@ def valid_acc(account):
     
 def fund_transfer_screen():
     win = config.screen
-    config.TEXT_LIMIT = 6
+    config.TEXT_LIMIT = 10
     config.Window.clear_screen(win)
     config.EN_NUMPAD = True
-    Label(win, text="Enter Account number",bg=config.DARK_BLUE, fg="white", font=(None, 25)).place(relx=0.5, rely=0.35, anchor='center',)
+    Label(win, text="Enter Account Number",bg=config.DARK_BLUE, fg="white", font=(None, 33)).place(relx=0.5, rely=0.35, anchor='center',)
 
     e = Entry(win,font=(None,50), justify="center")
     e.place(relx=0.5, rely=0.7, anchor='center', height=80, width=400)
@@ -42,7 +42,7 @@ def fund_transfer_screen_2():
     win= config.screen
     config.Window.clear_screen(win)
 
-    Label(win, text="Enter amount", bg=config.DARK_BLUE, fg="white", font=(None, 50)).place(relx=0.5, rely=0.35, anchor='center')
+    Label(win, text="Enter Amount", bg=config.DARK_BLUE, fg="white", font=(None, 50)).place(relx=0.5, rely=0.35, anchor='center')
 
     e = Entry(win, font=(None,50), justify= "center")
     e.place(relx=0.5, rely=0.7, anchor='center', height=80, width=400)

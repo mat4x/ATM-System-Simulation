@@ -46,7 +46,7 @@ def get_acc_from_card(card_no):
 
 
 def get_acc(acc_no):
-    dataframe = pd.read_csv("Accounts_Data.csv", dtype=str)
+    dataframe = pd.read_csv("Accounts_Data_Test.csv", dtype=str)
     row = dataframe[dataframe["Account No"] == str(acc_no)]
     if (row.size):
         row = row.values[0]
@@ -56,7 +56,7 @@ def get_acc(acc_no):
 
 def get_cards():
     cards = []
-    dataframe = pd.read_csv("Cards_Data.csv", dtype=str).head(6)
+    dataframe = pd.read_csv("Cards_Data_Test.csv", dtype=str).head(6)
     for row in dataframe.values:
         cards.append(config.Classes.Card(row[0],row[1],row[2],row[3]))
     return cards
