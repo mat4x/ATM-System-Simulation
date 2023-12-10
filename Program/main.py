@@ -22,3 +22,11 @@ if __name__ == "__main__":
 	else:
 		config.Message_Windows.ATM_unavailable();
 	config.win.mainloop()
+
+'''
+Group members:
+- Mayur Sharma
+- Priyanshi Singhal
+- Ananaya Mishra
+- Shubham Kumar
+'''

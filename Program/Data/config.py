@@ -41,3 +41,12 @@ CH_PINS = [0,0]
 
 #Advert SCreen Control
 CYCLE = True
+
+
+'''
+Group members:
+- Mayur Sharma
+- Priyanshi Singhal
+- Ananaya Mishra
+- Shubham Kumar
+'''

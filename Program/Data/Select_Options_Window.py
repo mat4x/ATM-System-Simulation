@@ -25,3 +25,12 @@ if __name__ == "__main__":
 	select_transaction_screen()
 
 	config.win.mainloop()
+
+
+'''
+Group members:
+- Mayur Sharma
+- Priyanshi Singhal
+- Ananaya Mishra
+- Shubham Kumar
+'''
