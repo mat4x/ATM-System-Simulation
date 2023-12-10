@@ -27,7 +27,7 @@ def display_acc_details():
     Label(win,text=balance ,font=(None,font_sz),bg=config.DARK_BLUE,fg="white").place(relx=right,rely=0.6)
     Label(win,text=acc_type,font=(None,font_sz),bg=config.DARK_BLUE,fg="white").place(relx=right,rely=0.7)
 
-    config.win.after(10000,lambda:config.Message_Windows.transaction_ended_window("SUCCESS"))
+    config.win.after(15000,lambda:config.Message_Windows.transaction_ended_window("SUCCESS"))
 
 
 if __name__ == "__main__":

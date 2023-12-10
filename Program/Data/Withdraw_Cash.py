@@ -52,10 +52,11 @@ def read_amount():
 		config.Message_Windows.transaction_ended_window("INSUFFICIENT_BAL")
 		
 	else:	#All okay
+		config.CURR_USER_ACC.withdraw(int(amount))
+		config.MACHINE.deduct(amount)
 		config.Loading_Screen.loading_screen("Please collect your cash")
 		config.win.after(5000, lambda: dispense_cash(amount))
 		config.win.after(8500, lambda: config.Message_Windows.transaction_ended_window("SUCCESS"))
-		config.MACHINE.cash_available-=amount
 		print("Please collect Cash")
 
 

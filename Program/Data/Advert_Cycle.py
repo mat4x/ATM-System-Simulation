@@ -4,7 +4,7 @@ import config
 
 
 def cycle_advert(screen, i=0):
-    TIME = 3500
+    TIME = 4500
     #print("Cycling")
     screen['image'] = IMAGES[i]
     if i==len(IMAGES)-1: i=-1

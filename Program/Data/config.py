@@ -37,7 +37,7 @@ CAN_TERMINATE = False
 
 CH_PINS = [0,0]
 
-
+PRINT_RECEIPT = False
 
 #Advert SCreen Control
 CYCLE = True

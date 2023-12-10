@@ -12,8 +12,6 @@ def paste_message(message):
 def progress_loading(bar, message):
 	val = bar['value']
 	bar['value'] =(val+4)
-	print(bar['value'])
-	
 	if bar['value'] >= 100: paste_message(message)
 	else: bar.after(100, lambda: progress_loading(bar, message))
 	

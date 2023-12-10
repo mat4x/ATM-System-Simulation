@@ -1,4 +1,4 @@
-from tkinter import Label
+from tkinter import Label, Button
 from PIL import ImageTk, Image
 import config
        
@@ -11,7 +11,7 @@ def transaction_ended_window(transaction_status):
 	config.TIMER = False
 
 	info = ".\\images\\info.gif" if config.PLATFORM == "Windows" else "./images/info.gif"
-	global INFO_IMG
+	global INFO_IMG, RECEIPT
 	INFO_IMG = ImageTk.PhotoImage(Image.open(info).resize((50,50), Image.ANTIALIAS))
 	Label(config.screen, image=INFO_IMG, bg=config.DARK_BLUE).place(relx=0.025, rely=0.3, anchor='w')
 
@@ -45,19 +45,28 @@ def transaction_ended_window(transaction_status):
 		Label(config.screen, text="Unavailable.\nPlease try again later", fg='white', bg=config.DARK_BLUE, font=(None, 30),justify='left').place(relx=0.15, rely=0.3, anchor='w')
 
 	elif transaction_status == "PIN_NOT_MATCH":
-		Label(config.screen, text="Confirm PIN doesn't match", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+		Label(config.screen, text="Confirm PIN\nDoesn't Match", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "SAME_PIN_ENTERED":
-		Label(config.screen, text="Please Enter\na different PIN", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+		Label(config.screen, text="Please Enter\na Different PIN", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 	elif transaction_status == "PIN_CHANGED_SUCCESSFULLY":
 		config.Data_Access.save_acc(config.CURR_USER_ACC)
-		Label(config.screen, text="Your PIN has\nbeen updated", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
+		Label(config.screen, text="Your PIN has\nbeen Updated", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.15, rely=0.3, anchor='w')
 
 	else:
-		print("Yo, we got an error at Messages")
+		print("None error at Messages")
+
+
+	if config.PRINT_RECEIPT:
+		ratio = config.win.winfo_height()/config.win.winfo_width()
+		receipt = ".\\images\\receipt.png" if config.PLATFORM == "Windows" else "./images/receipt.png"
+		RECEIPT = ImageTk.PhotoImage(Image.open(receipt).resize((100,100), Image.ANTIALIAS))
+		recpt = Button(config.win, image=RECEIPT, bg=config.BLUE, border=0, command = lambda: recpt.destroy())
+		config.win.after(2000, lambda: recpt.place(relx=ratio+((1-ratio)/2)-0.04, rely=0.83, anchor='n'))
 
 	Label(config.screen, text="Please take your card", fg='white', bg=config.DARK_BLUE, font=(None, 30)).place(relx=0.5, rely=0.7, anchor='center')
 	
-	config.screen.after(10000, lambda: config.Advert_Cycle.advert_window(config.screen))
+	config.PRINT_RECEIPT = False
+	config.screen.after(5000, lambda: config.Advert_Cycle.advert_window(config.screen))
 
 
 def ATM_unavailable():
@@ -75,6 +84,7 @@ if __name__ == "__main__":
 	config.screen = config.Window.create_screen(config.win)
 	config.Window.create_numpad(config.win, config.screen)
 
+	config.PRINT_RECEIPT = True
 	transaction_ended_window("FAILURE")
 
 	config.win.mainloop()

@@ -3,9 +3,7 @@ import config
 from Classes import Account
 
 def transfer(e):
-    
-    config.CURR_USER_ACC.details()
-    config.RECEIVER_ACC.details()
+    config.PRINT_RECEIPT = True
 
     amount = int(e.get())
     print(amount)
@@ -18,9 +16,6 @@ def transfer(e):
     else:
         print("Insufficient balance")
         config.Message_Windows.transaction_ended_window("INSUFFICIENT_BAL")
-
-    config.CURR_USER_ACC.details()
-    config.RECEIVER_ACC.details()
 
 
 def valid_acc(account):

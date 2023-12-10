@@ -41,6 +41,7 @@ def check():
     config.CH_PINS[1] = config.ENTRY_BOX.get()
 
     if config.CH_PINS[0] == config.CH_PINS[1]:
+        config.PRINT_RECEIPT = True
         print("PIN changed successfully")
         
         config.CURR_USER_ACC.card_PIN = config.CH_PINS[0]

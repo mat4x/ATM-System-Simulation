@@ -17,8 +17,7 @@ class Machine:
         self.cash_available  = cash_available
     
     def deduct(self, amount):
-        if amount<=self.cash_available:
-            self.cash_available -= amount
+        self.cash_available -= amount
             
     def data(self):
         return '\n'.join([self.status, self.branch_location, str(self.cash_available)])

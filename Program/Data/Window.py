@@ -105,8 +105,8 @@ def create_numpad(win, screen):
     Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2), rely=0.7, relheight=0.015, relwidth=(1-ratio)*0.9, anchor='center')
 
     #Receipt Printer
-    Frame(win, bg='#777777').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.85, relheight=0.055, relwidth=(1-ratio)*0.7, anchor='center')
-    Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.85, relheight=0.015, relwidth=(1-ratio)*0.7*0.85, anchor='center')
+    Frame(win, bg='#777777').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.83, relheight=0.055, relwidth=(1-ratio)*0.7, anchor='center')
+    Frame(win, bg='#222222').place(relx=ratio+((1-ratio)/2)-0.04, rely=0.83, relheight=0.015, relwidth=(1-ratio)*0.7*0.85, anchor='center')
 
 
 
